@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Loja Online</title>
+	<!-- Bootstrap -->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<link href="lib/bootstrap/css/bootstrap.theme.css" rel="stylesheet" media="screen">
+	
+
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+
+	.red { color: red; font-size: 16px;}
+	#cadastro .control-group { display: none; }
+	</style>
+
+	<link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+	<link href="lib/select2/select2.css" rel="stylesheet"/>
+	<script src="lib/select2/select2.js"></script>
+	<script>
+	$(document).ready(function() { $("#cidade").select2(); });
+	</script>
+	
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">Loja Online</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#about">Sobre</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<h1>Endereço</h1>
+
+		<ul class="breadcrumb">
+			<li>
+				<a href="#">Carrinho</a>
+				<span class="divider">/</span>
+			</li>
+			<li>
+				<a href="index.html">Cadastro</a>
+				<span class="divider">/</span>
+			</li>
+			<li class="active">
+				Endereço
+				<span class="divider">/</span>
+			</li>
+			<li>
+				<a href="pagamento.html">Pagamento</a>
+				<span class="divider">/</span>
+			</li>
+			<li><a href="concluir.html">Concluir</a></li>
+		</ul>
+
+		<div class="hero-unit">
+			<script>info_usuario()</script>
+			<div id="info-usuario">
+				Informações do usuário, trazidas via AJAX
+			</div>
+		</div>
+
+		<div class="btn-toolbar">
+			<a href="#novo" id="btn-novo" onclick="$('#novo').toggle(); $('#fecha').toggle();" class="btn btn-primary">Novo endereço</a>
+		</div>
+
+		<div class="well">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Logadouro</th>
+						<th>Número</th>
+						<th>Bairro</th>
+						<th>Cidade/Estado</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox" name="endereco"></td>
+						<td>Rua Duzentos e Trinta e Nove</td>
+						<td>30</td>
+						<td>Tijucal</td>
+						<td>Cuiabá/MT</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<form id="novo" class="form-horizontal" style="display: none">
+			<fieldset>
+				<!-- Address form -->
+
+				<legend>
+					Novo endereço
+					<button id="fecha" type="button" onclick="$('#novo').toggle(); $(this).toggle()" class="close" style="float: right; display: none; margin-top: 10px;">&times;</button>
+				</legend>
+				<!-- address-line1 input-->
+				<div class="control-group">
+					<label class="control-label">Endereço</label>
+					<div class="controls">
+						<input id="address-line1" name="logadouro" type="text" placeholder="logadouro" class="input-xlarge">
+						<p class="help-block">Rua, Avenida, Bloco</p>
+					</div>
+				</div>
+				<!-- city input-->
+				<div class="control-group">
+					<label class="control-label">Bairro</label>
+					<div class="controls">
+						<input id="city" name="city" type="text" placeholder="bairro" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<!-- city input-->
+				<div class="control-group">
+					<label class="control-label">Cidade</label>
+					<div class="controls">
+						<select id="cidade" name="cidade">
+							<option value="Abadia de Goiás (GO)"> Abadia de Goiás (GO)</option>
+							<option value="Abadia dos Dourados (MG)"> Abadia dos Dourados (MG)</option>
+							<option value="Abadiânia (GO)"> Abadiânia (GO)</option>
+							<option value="Abaeté (MG)"> Abaeté (MG)</option>
+							<option value="Abaetetuba (PA)"> Abaetetuba (PA)</option>
+							<option value="Abaiara (CE)"> Abaiara (CE)</option>
+							<option value="Abaíra (BA)"> Abaíra (BA)</option>
+							<option value="Abaré (BA)"> Abaré (BA)</option>
+							<option value="Abatiá (PR)"> Abatiá (PR)</option>
+							<option value="Abdon Batista (SC)"> Abdon Batista (SC)</option>
+							<option value="Abel Figueiredo (PA)"> Abel Figueiredo (PA)</option>
+							<option value="Abelardo Luz (SC)"> Abelardo Luz (SC)</option>
+							<option value="Abre-Campo (MG)"> Abre-Campo (MG)</option>
+							<option value="Abreu e Lima (PE)"> Abreu e Lima (PE)</option>
+							<option value="Abreulândia (TO)"> Abreulândia (TO)</option>
+							<option value="Acaiaca (MG)"> Acaiaca (MG)</option>
+							<option value="Açailândia (MA)"> Açailândia (MA)</option>
+							<option value="Acajutiba (BA)"> Acajutiba (BA)</option>
+							<option value="Acará (PA)"> Acará (PA)</option>
+							<option value="Acarape (CE)"> Acarape (CE)</option>
+							<option value="Acaraú (CE)"> Acaraú (CE)</option>
+							<option value="Acari (RN)"> Acari (RN)</option>
+							<option value="Acauã (PI)"> Acauã (PI)</option>
+							<option value="Aceguá (RS)"> Aceguá (RS)</option>
+							<option value="Acopiara (CE)"> Acopiara (CE)</option>
+							<option value="Acorizal (MT)"> Acorizal (MT)</option>
+							<option value="Acrelândia (AC)"> Acrelândia (AC)</option>
+							<option value="Acreúna (GO)"> Acreúna (GO)</option>
+							<option value="Açucena (MG)"> Açucena (MG)</option>
+							<option value="Açu (RN)"> Açu (RN)</option>
+							<option value="Adamantina (SP)"> Adamantina (SP)</option>
+							<option value="Adelândia (GO)"> Adelândia (GO)</option>
+							<option value="Adolfo (SP)"> Adolfo (SP)</option>
+							<option value="Adrianópolis (PR)"> Adrianópolis (PR)</option>
+							<option value="Adustina (BA)"> Adustina (BA)</option>
+							<option value="Afogados da Ingazeira (PE)"> Afogados da Ingazeira (PE)</option>
+							<option value="Afonso Bezerra (RN)"> Afonso Bezerra (RN)</option>
+							<option value="Afonso Cláudio (ES)"> Afonso Cláudio (ES)</option>
+							<option value="Afonso Cunha (MA)"> Afonso Cunha (MA)</option>
+							<option value="Afrânio (PE)"> Afrânio (PE)</option>
+							<option value="Afuá (PA)"> Afuá (PA)</option>
+							<option value="Agrestina (PE)"> Agrestina (PE)</option>
+							<option value="Agricolândia (PI)"> Agricolândia (PI)</option>
+							<option value="Agrolândia (SC)"> Agrolândia (SC)</option>
+							<option value="Agronômica (SC)"> Agronômica (SC)</option>
+							<option value="Água Azul do Norte (PA)"> Água Azul do Norte (PA)</option>
+							<option value="Água Boa (MG)"> Água Boa (MG)</option>
+							<option value="Água Boa (MT)"> Água Boa (MT)</option>
+							<option value="Água Branca (AL)"> Água Branca (AL)</option>
+							<option value="Água Branca (PB)"> Água Branca (PB)</option>
+							<option value="Água Branca (PI)"> Água Branca (PI)</option>
+							<option value="Água Clara (MS)"> Água Clara (MS)</option>
+							<option value="Água Comprida (MG)"> Água Comprida (MG)</option>
+							<option value="Água Doce do Norte (ES)"> Água Doce do Norte (ES)</option>
+							<option value="Água Doce (SC)"> Água Doce (SC)</option>
+							<option value="Água Doce do Maranhão (MA)"> Água Doce do Maranhão (MA)</option>
+							<option value="Água Fria (BA)"> Água Fria (BA)</option>
+							<option value="Água Fria de Goiás (GO)"> Água Fria de Goiás (GO)</option>
+							<option value="Aguaí (SP)"> Aguaí (SP)</option>
+							<option value="Água Limpa (GO)"> Água Limpa (GO)</option>
+							<option value="Aguanil (MG)"> Aguanil (MG)</option>
+							<option value="Água Nova (RN)"> Água Nova (RN)</option>
+							<option value="Água Preta (PE)"> Água Preta (PE)</option>
+							<option value="Água Santa (RS)"> Água Santa (RS)</option>
+							<option value="Águas Belas (PE)"> Águas Belas (PE)</option>
+							<option value="Águas da Prata (SP)"> Águas da Prata (SP)</option>
+							<option value="Águas de Chapecó (SC)"> Águas de Chapecó (SC)</option>
+							<option value="Águas de Lindóia (SP)"> Águas de Lindóia (SP)</option>
+							<option value="Águas de Santa Bárbara (SP)"> Águas de Santa Bárbara (SP)</option>
+							<option value="Águas de São Pedro (SP)"> Águas de São Pedro (SP)</option>
+							<option value="Águas Formosas (MG)"> Águas Formosas (MG)</option>
+							<option value="Águas Frias (SC)"> Águas Frias (SC)</option>
+							<option value="Águas Lindas de Goiás (GO)"> Águas Lindas de Goiás (GO)</option>
+							<option value="Águas Mornas (SC)"> Águas Mornas (SC)</option>
+							<option value="Águas Vermelhas (MG)"> Águas Vermelhas (MG)</option>
+							<option value="Agudo (RS)"> Agudo (RS)</option>
+							<option value="Agudos (SP)"> Agudos (SP)</option>
+							<option value="Agudos do Sul (PR)"> Agudos do Sul (PR)</option>
+							<option value="Águia Branca (ES)"> Águia Branca (ES)</option>
+							<option value="Aguiar (PB)"> Aguiar (PB)</option>
+							<option value="Aguiarnópolis (TO)"> Aguiarnópolis (TO)</option>
+							<option value="Aimorés (MG)"> Aimorés (MG)</option>
+							<option value="Aiquara (BA)"> Aiquara (BA)</option>
+							<option value="Aiuaba (CE)"> Aiuaba (CE)</option>
+							<option value="Aiuruoca (MG)"> Aiuruoca (MG)</option>
+							<option value="Ajuricaba (RS)"> Ajuricaba (RS)</option>
+							<option value="Alagoa (MG)"> Alagoa (MG)</option>
+							<option value="Alagoa Grande (PB)"> Alagoa Grande (PB)</option>
+							<option value="Alagoa Nova (PB)"> Alagoa Nova (PB)</option>
+							<option value="Alagoinha (PB)"> Alagoinha (PB)</option>
+							<option value="Alagoinha (PE)"> Alagoinha (PE)</option>
+							<option value="Alagoinha do Piauí (PI)"> Alagoinha do Piauí (PI)</option>
+							<option value="Alagoinhas (BA)"> Alagoinhas (BA)</option>
+							<option value="Alambari (SP)"> Alambari (SP)</option>
+							<option value="Albertina (MG)"> Albertina (MG)</option>
+							<option value="Alcântara (MA)"> Alcântara (MA)</option>
+							<option value="Alcântaras (CE)"> Alcântaras (CE)</option>
+							<option value="Alcantil (PB)"> Alcantil (PB)</option>
+							<option value="Alcinópolis (MS)"> Alcinópolis (MS)</option>
+							<option value="Alcobaça (BA)"> Alcobaça (BA)</option>
+							<option value="Aldeias Altas (MA)"> Aldeias Altas (MA)</option>
+							<option value="Alecrim (RS)"> Alecrim (RS)</option>
+							<option value="Alegre (ES)"> Alegre (ES)</option>
+							<option value="Alegrete (RS)"> Alegrete (RS)</option>
+							<option value="Alegrete do Piauí (PI)"> Alegrete do Piauí (PI)</option>
+							<option value="Alegria (RS)"> Alegria (RS)</option>
+							<option value="Além Paraíba (MG)"> Além Paraíba (MG)</option>
+							<option value="Alenquer (PA)"> Alenquer (PA)</option>
+							<option value="Alexandria (RN)"> Alexandria (RN)</option>
+							<option value="Alexânia (GO)"> Alexânia (GO)</option>
+							<option value="Alfenas (MG)"> Alfenas (MG)</option>
+							<option value="Alfredo Chaves (ES)"> Alfredo Chaves (ES)</option>
+							<option value="Alfredo Marcondes (SP)"> Alfredo Marcondes (SP)</option>
+							<option value="Alfredo Vasconcelos (MG)"> Alfredo Vasconcelos (MG)</option>
+							<option value="Alfredo Wagner (SC)"> Alfredo Wagner (SC)</option>
+							<option value="Algodão de Jandaíra (PB)"> Algodão de Jandaíra (PB)</option>
+						</select>
+						<p class="help-block"></p>
+					</div>
+				</div>
+
+				<!-- postal-code input-->
+				<div class="control-group">
+					<label class="control-label">CEP</label>
+					<div class="controls">
+						<input id="postal-code" name="postal-code" type="text" placeholder="zip or postal code" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+
+				<!-- submit-->
+				<div class="control-group">
+					<label class="control-label"></label>
+					<div class="controls">
+						<button class="btn" type="submit">Salvar</button>
+						<p class="help-block"></p>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+
+		<button type="button" class="btn btn-primary" style="float: left;"><i class="icon-chevron-left icon-white"></i> Voltar</button>
+		<button type="button" class="btn btn-primary" style="float: right;"><i class="icon-ok icon-white"></i> Continuar</button>
+	</div>
+</body>
+</html>
