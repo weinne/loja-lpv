@@ -27,6 +27,10 @@ function cadastro()
     });
 }
 
+function info_usuario () {
+    // body...
+}
+
 function pegaListaAltera(Classe) 
 {
 	ObjetoLocal = localStorage.getItem(Classe);

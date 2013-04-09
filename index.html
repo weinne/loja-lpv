@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Loja Online</title>
 	<!-- Bootstrap -->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -55,7 +56,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container-fluid">
 		<h1>Cadastro</h1>
 		<ul class="breadcrumb">
 			<li>
@@ -67,16 +68,16 @@
 				<span class="divider">/</span>
 			</li>
 			<li>
-				<a href="#">Endereço</a>
+				<a href="endereco.html">Endereço</a>
 				<span class="divider">/</span>
 			</li>
 			<li>
-				<a href="#">Pagamento</a>
+				<a href="pagamento.html">Pagamento</a>
 				<span class="divider">/</span>
 			</li>
-			<li><a href="#">Concluir</a></li>
+			<li><a href="concluir.html">Concluir</a></li>
 		</ul>
-		<div class="row show-grid">
+		<div class="row-fluid show-grid">
 			<div class="span6">
 				<form class="form-horizontal">
 					<fieldset>
@@ -109,109 +110,99 @@
 				<form name="cadastro" id="cadastro" class="form-horizontal">
 					<fieldset>
 
-					<!-- Form Name -->
-					<legend>
-						Criar nova conta
-						<button
-							id="fecha"
-							type="button"
-							onclick="$('#cadastro .control-group').toggle(); $('#novo').toggle(); $(this).toggle()"
-							class="close"
-							style="float: right; display: none; margin-top: 10px;">&times;
+						<!-- Form Name -->
+						<legend>
+							Criar nova conta
+							<button id="fecha" type="button" onclick="$('#cadastro .control-group').toggle(); $('#novo').toggle(); $(this).toggle()" class="close" style="float: right; display: none; margin-top: 10px;">&times;</button>
+						</legend>
+						<p>Caso não possua uma conta, cadastre-se na Loja Online!</p>
+
+						<button id="novo" class="btn" type="button" onclick="$('#cadastro .control-group').toggle(); $(this).toggle(); $('#fecha').toggle()">
+							<i class="icon-plus"></i>
+							Criar minha conta
 						</button>
-					</legend>
-					<p>Caso não possua uma conta, cadastre-se na Loja Online!</p>
 
-					<button
-					id="novo"
-					class="btn"
-					type="button"
-					onclick="$('#cadastro .control-group').toggle(); $(this).toggle(); $('#fecha').toggle()">
-					<i class="icon-plus"></i>
-					Criar minha conta
-				</button>
+						<!-- Text input-->
+						<div class="control-group">
+							<label class="control-label">Nome <span class="red">*</span></label>
+							<div class="controls">
+								<input id="nome" name="nome" type="text" placeholder="nome" class="input-xlarge" required="">
+								<p class="help-block">Digite seu nome</p>
+							</div>
+						</div>
 
-				<!-- Text input-->
-				<div class="control-group">
-					<label class="control-label">Nome <span class="red">*</span></label>
-					<div class="controls">
-						<input id="nome" name="nome" type="text" placeholder="nome" class="input-xlarge" required="">
-						<p class="help-block">Digite seu nome</p>
-					</div>
-				</div>
+						<!-- Select Basic -->
+						<div class="control-group">
+							<label class="control-label">Gênero</label>
+							<div class="controls">
+								<select id="genero" name="genero" class="input-xlarge">
+									<option>Masculino</option>
+									<option>Feminino</option>
+								</select>
+							</div>
+						</div>
 
-				<!-- Select Basic -->
-				<div class="control-group">
-					<label class="control-label">Gênero</label>
-					<div class="controls">
-						<select id="genero" name="genero" class="input-xlarge">
-							<option>Masculino</option>
-							<option>Feminino</option>
-						</select>
-					</div>
-				</div>
+						<!-- Text input-->
+						<div class="control-group">
+							<label class="control-label">Data de Nascimento</label>
+							<div class="controls">
+								<input id="data" name="data" type="text" placeholder="data de nascimento" class="input-xlarge">
+								<p class="help-block">Digite sua data de nascimento</p>
+							</div>
+						</div>
 
-				<!-- Text input-->
-				<div class="control-group">
-					<label class="control-label">Data de Nascimento</label>
-					<div class="controls">
-						<input id="data" name="data" type="text" placeholder="data de nascimento" class="input-xlarge">
-						<p class="help-block">Digite sua data de nascimento</p>
-					</div>
-				</div>
+						<!-- Text input-->
+						<div class="control-group">
+							<label class="control-label">Email <span class="red">*</span></label>
+							<div class="controls">
+								<input id="email" name="email" type="text" placeholder="email" class="input-xlarge" required="">
+								<p class="help-block">email</p>
+							</div>
+						</div>
 
-				<!-- Text input-->
-				<div class="control-group">
-					<label class="control-label">Email <span class="red">*</span></label>
-					<div class="controls">
-						<input id="email" name="email" type="text" placeholder="email" class="input-xlarge" required="">
-						<p class="help-block">email</p>
-					</div>
-				</div>
+						<!-- Password input-->
+						<div class="control-group">
+							<label class="control-label">Senha <span class="red">*</span></label>
+							<div class="controls">
+								<input id="senha" name="senha" type="password" placeholder="senha" class="input-xlarge" required="">
+								<p class="help-block">Digite uma senha para sua conta</p>
+							</div>
+						</div>
 
-				<!-- Password input-->
-				<div class="control-group">
-					<label class="control-label">Senha <span class="red">*</span></label>
-					<div class="controls">
-						<input id="senha" name="senha" type="password" placeholder="senha" class="input-xlarge" required="">
-						<p class="help-block">Digite uma senha para sua conta</p>
-					</div>
-				</div>
+						<!-- Password input-->
+						<div class="control-group">
+							<label class="control-label">Repita a senha <span class="red">*</span></label>
+							<div class="controls">
+								<input id="repita-senha" name="repita-senha" type="password" placeholder="senha" class="input-xlarge" required="">
+								<p class="help-block">Por favor, repita a mesma senha digitada</p>
+							</div>
+						</div>
 
-				<!-- Password input-->
-				<div class="control-group">
-					<label class="control-label">Repita a senha <span class="red">*</span></label>
-					<div class="controls">
-						<input id="repita-senha" name="repita-senha" type="password" placeholder="senha" class="input-xlarge" required="">
-						<p class="help-block">Por favor, repita a mesma senha digitada</p>
-					</div>
-				</div>
+						<!-- Multiple Checkboxes (inline) -->
+						<div class="control-group">
+							<label class="control-label"><a href="#">Termos e condições</a></label>
+							<div class="controls">
+								<label class="checkbox inline">
+									<input type="checkbox" name="aceito" value="Aceito os termos e condições">
+									Aceito os termos e condições
+								</label>
+							</div>
+						</div>
 
-				<!-- Multiple Checkboxes (inline) -->
-				<div class="control-group">
-					<label class="control-label"><a href="#">Termos e condições</a></label>
-					<div class="controls">
-						<label class="checkbox inline">
-							<input type="checkbox" name="aceito" value="Aceito os termos e condições">
-							Aceito os termos e condições
-						</label>
-					</div>
-				</div>
+						<!-- Multiple Checkboxes (inline) -->
+						<div class="control-group">
+							<label class="control-label"></label>
+							<div class="controls">
+								<label class="checkbox inline">
+									<button id="btn-cadastro" type="button" class="btn btn-primary"><i class="icon-ok icon-white"></i> Continuar</button>
+								</label>
+							</div>
+						</div>
 
-				<!-- Multiple Checkboxes (inline) -->
-				<div class="control-group">
-					<label class="control-label"></label>
-					<div class="controls">
-						<label class="checkbox inline">
-							<button id="btn-cadastro" type="button" class="btn btn-primary"><i class="icon-ok icon-white"></i> Continuar</button>
-						</label>
-					</div>
-				</div>
-
-			</fieldset>
-		</form>
+					</fieldset>
+				</form>
+			</div>
+		</div>
 	</div>
-</div>
-</div>
 </body>
 </html>
