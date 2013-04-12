@@ -17,6 +17,8 @@
     #cadastro .control-group { display: none; }
     </style>
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -80,137 +82,153 @@
         </ul>
         <div class="row-fluid show-grid">
         </div>
-        <h2>Forma de Pagamento
-        </h2>
-        <p>Selecione um tipo de cartão:
-        </p>
-        <img src="//app.divshot.com/img/placeholder-100x100.gif"
-        class="img-rounded">
-        <img src="//app.divshot.com/img/placeholder-100x100.gif" class="img-rounded">
-        <img src="//app.divshot.com/img/placeholder-100x100.gif" class="img-rounded">
-        <img src="//app.divshot.com/img/placeholder-100x100.gif" class="img-rounded"> 
-        <h2>Dados do cartão
-        </h2>
-        <div class="row-fluid">
-            <form class="form-horizontal">
-                <fieldset>
-                    <div id="legend">
-                        <legend>Dados do cartão
-                        </legend>
-                    </div>
-                    <!-- Name -->
-                    <div class="control-group">
-                        <label class="control-label" for="username">Nome
-                        </label>
-                        <div class="controls">
-                            <input type="text" id="username" name="username" placeholder="" class="input-xlarge" required="required" />
-                            <p class="help-block">Digite o nome impresso no cartão 
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card Number -->
-                    <div class="control-group">
-                        <label class="control-label" for="numero">Número do cartão
-                        </label>
-                        <div class="controls">
-                            <input type="text" id="numero" name="numero" placeholder="" class="input-xlarge" required="required" />
-                            <p class="help-block">Digite o número do cartão, sem espaços
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Expiry-->
-                    <div class="control-group">
-                        <label class="control-label" for="password">Data de Vencimento
-                        </label>
-                        <div class="controls">
-                            <select class="span3" name="expiry_month" id="expiry_month" required="required"/>
-                                <option>
-                                </option>
-                                <option value="01">Janeiro (01)
-                                </option>
-                                <option value="02">Fevereiro (02)
-                                </option>
-                                <option value="03">Março (03)
-                                </option>
-                                <option value="04">Abril (04)
-                                </option>
-                                <option value="05">Maio (05)
-                                </option>
-                                <option value="06">Junho (06)
-                                </option>
-                                <option value="07">Julho (07)
-                                </option>
-                                <option value="08">Agosto (08)
-                                </option>
-                                <option value="09">Setembro (09)
-                                </option>
-                                <option value="10">Outubro (10)
-                                </option>1
-                                <option value="11">Novembro (11)
-                                </option>
-                                <option value="12">Dezembro (12)
-                                </option>
-                            </select>
-                            <select class="span2" name="expiry_year" required="required">
-                                <option value="13">2013
-                                </option>
-                                <option value="14">2014
-                                </option>
-                                <option value="15">2015
-                                </option>
-                                <option value="16">2016
-                                </option>
-                                <option value="17">2017
-                                </option>
-                                <option value="18">2018
-                                </option>
-                                <option value="19">2019
-                                </option>
-                                <option value="20">2020
-                                </option>
-                                <option value="21">2021
-                                </option>
-                                <option value="22">2022
-                                </option>
-                                <option value="23">2023
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- CVV -->
-                    <div class="control-group">
-                        <label class="control-label" for="password_confirm">Número de Verificação
-                        </label>
-                        <div class="controls">
-                            <input type="password" id="password_confirm" name="password_confirm" placeholder=""
-                            class="span2" required="required">
-                            <p class="help-block">Digite o número de verificação impresso no fundo do cartão
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Save card -->
-                    <div class="control-group">
-                        <div class="controls">
-                            <label class="checkbox" for="save_card">
-                                <input type="checkbox" id="save_card" value="option1"> Salvar cartão para próxima compra??
-                            </label>
-                            <p class="help-block">Você só poderá alterar os dados nas configurações de usuário
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Submit -->
-                    <div class="control-group">
-                        <div class="controls">
-                            <button class="btn btn-success">
-                                <i class="icon-ok icon-white">
-                                </i> Concluir a compra
-                            </button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
+        <div class="well">
+            <h2>Forma de Pagamento</h2>
+            <p>Selecione um tipo de cartão:</p>
+            <img onClick="$('form').fadeIn(); $('#bandeira').html('Visa');" style="cursor: pointer" src="//app.divshot.com/img/placeholder-100x100.gif" class="img-rounded">
+            <img onClick="$('form').fadeIn(); $('#bandeira').html('MasterCard');" style="cursor: pointer" src="//app.divshot.com/img/placeholder-100x100.gif" class="img-rounded">
         </div>
-
+        <form class="form-horizontal hide">
+            <fieldset>
+                <div id="legend">
+                    <legend>Dados do cartão</legend>
+                </div>
+                <!-- Bandeira -->
+                <div class="control-group">
+                    <div class="controls">
+                        <h4 id="bandeira"></h4>
+                    </div>
+                </div>
+                <!-- Name -->
+                <div class="control-group">
+                    <label class="control-label" for="username">Nome</label>
+                    <div class="controls">
+                        <input type="text" id="username" name="username" placeholder="" class="input-xlarge" required="required" />
+                        <p class="help-block">Digite o nome impresso no cartão</p>
+                    </div>
+                </div>
+                <!-- Card Number -->
+                <div class="control-group">
+                    <label class="control-label" for="numero">Número do cartão
+                    </label>
+                    <div class="controls">
+                        <input type="text" id="numero" name="numero" placeholder="" class="input-xlarge" required="required" />
+                        <p class="help-block">Digite o número do cartão, sem espaços
+                        </p>
+                    </div>
+                </div>
+                <!-- Expiry-->
+                <div class="control-group">
+                    <label class="control-label" for="password">Data de Vencimento
+                    </label>
+                    <div class="controls">
+                        <select class="span3" name="expiry_month" id="expiry_month" required="required"/>
+                            <option>
+                            </option>
+                            <option value="01">Janeiro (01)
+                            </option>
+                            <option value="02">Fevereiro (02)
+                            </option>
+                            <option value="03">Março (03)
+                            </option>
+                            <option value="04">Abril (04)
+                            </option>
+                            <option value="05">Maio (05)
+                            </option>
+                            <option value="06">Junho (06)
+                            </option>
+                            <option value="07">Julho (07)
+                            </option>
+                            <option value="08">Agosto (08)
+                            </option>
+                            <option value="09">Setembro (09)
+                            </option>
+                            <option value="10">Outubro (10)
+                            </option>1
+                            <option value="11">Novembro (11)
+                            </option>
+                            <option value="12">Dezembro (12)
+                            </option>
+                        </select>
+                        <select class="span2" name="expiry_year" required="required">
+                            <option value="13">2013
+                            </option>
+                            <option value="14">2014
+                            </option>
+                            <option value="15">2015
+                            </option>
+                            <option value="16">2016
+                            </option>
+                            <option value="17">2017
+                            </option>
+                            <option value="18">2018
+                            </option>
+                            <option value="19">2019
+                            </option>
+                            <option value="20">2020
+                            </option>
+                            <option value="21">2021
+                            </option>
+                            <option value="22">2022
+                            </option>
+                            <option value="23">2023
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <!-- CVV -->
+                <div class="control-group">
+                    <label class="control-label" for="password_confirm">Número de Verificação
+                    </label>
+                    <div class="controls">
+                        <input type="password" id="password_confirm" name="password_confirm" placeholder=""
+                        class="span2" required="required">
+                        <p class="help-block">Digite o número de verificação impresso no fundo do cartão
+                        </p>
+                    </div>
+                </div>
+                <!-- Save card -->
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox" for="save_card">
+                            <input type="checkbox" id="save_card" value="option1"> Salvar cartão para próxima compra??
+                        </label>
+                        <p class="help-block">Você só poderá alterar os dados nas configurações de usuário
+                        </p>
+                    </div>
+                </div>
+                <!-- Submit -->
+                <div class="control-group">
+                    <div class="controls">
+                        <a href="#myModal" class="btn btn-success" data-toggle="modal" onclick="$('#cancelar').delay(3000).fadeOut(); $('#continuar').delay(3000).fadeIn();">
+                            <i class="icon-ok icon-white">
+                            </i> Concluir a compra
+                        </a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class="btn-toolbar">
+            <button id="voltar" type="button" class="btn btn-primary">
+                <i class="icon-chevron-left icon-white"></i>
+                Voltar
+            </button>
+        </div>
+    <div id="myModal" class="modal hide fade">
+        <div class="modal-header">
+            <button  type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Processando pagamento</h3>
+        </div>
+        <div class="modal-body">
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 99%;"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a id="cancelar" href="#" data-dismiss="modal" class="btn">Cancelar</a>
+            <a id="continuar" href="#" class="btn btn-primary hide">Salvar mudanças</a>
+        </div>
+    </div>
 </body>
 
 
